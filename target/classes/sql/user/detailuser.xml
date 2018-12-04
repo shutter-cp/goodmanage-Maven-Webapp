@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.goodmanage.dao.user.DetailUserDao">
+	  	<select id="getUserMsg" resultType="com.goodmanage.bean.Users" parameterType="String">
+	  			SELECT
+					userName,
+					pwd,
+					validateFlag,
+					roles
+				FROM
+					users
+				WHERE
+					userName = #{userName}
+	  	</select>
+	  	<update id="upDate"  parameterType="com.goodmanage.bean.Users"  flushCache="true">
+ 					UPDATE
+						users
+					SET
+						userName = #{userName},
+						pwd = #{pwd},
+						validateFlag = #{validateFlag},
+						roles = #{roles}
+					WHERE
+						userName = #{userName}
+	  	</update>
+	  	<update id="upDo" parameterType="com.goodmanage.bean.Users"  flushCache="true">
+ 					UPDATE
+						users
+					SET
+						validateFlag = #{validateFlag}
+					WHERE
+						userName = #{userName}
+	  	</update>
+	  	<select id="getRolesList"  resultType="com.goodmanage.bean.Roles">
+		  		SELECT
+					id,
+					roleName
+				FROM
+					roles
+	  	</select>
+  </mapper>

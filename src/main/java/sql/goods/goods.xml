@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="com.goodmanage.dao.goods.GoodDao">
+ 	<select id="getGoodsTyep" resultType="com.goodmanage.bean.Goodstype">
+ 			SELECT
+				id,
+				typename,
+				typedes
+			FROM
+				goodstype
+ 	</select>
+ 	<insert id="addGoods" parameterType="com.goodmanage.bean.Goods">
+			INSERT INTO
+				goods(
+					goodsName,
+					goodsPrice,
+					goodsCount,
+					goodsDep,
+					goodsType
+				)VALUE(
+					#{goodsName},
+					#{goodsPrice},
+					#{goodsCount},
+					#{goodsDep},
+					#{goodsType}
+				)
+ 	</insert>
+ 	
+ 	<select id="getGoodsList"  resultType="com.goodmanage.bean.GoodsLi">
+ 				SELECT
+					goodsID,
+					goodsName,
+					goodsPrice,
+					goodsCount,
+					goodsDep,
+					typename type
+				FROM
+					goods INNER JOIN
+					goodstype ON goods.goodsType = goodstype.id
+ 	</select>
+ 	
+ 	<select id="fondGoodsList" resultType="com.goodmanage.bean.GoodsLi" parameterType="com.goodmanage.bean.Fond">
+ 				SELECT
+					goodsID,
+					goodsName,
+					goodsPrice,
+					goodsCount,
+					goodsDep,
+					typename type
+				FROM
+					goods INNER JOIN
+					goodstype ON goods.goodsType = goodstype.id
+				WHERE
+					goodsID LIKE #{id}
+					AND goodsName LIKE #{name}
+ 	</select>
+ </mapper>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.goodmanage.dao.user.AddUserDao">
+  		<insert id="addUser"  parameterType="com.goodmanage.bean.Users"  flushCache="true">
+				INSERT INTO
+					users(
+						userName,
+						pwd,
+						validateFlag,
+						roles
+					)VALUE(
+						#{userName},
+						#{pwd},
+						0,
+						#{roles}
+					)
+  		</insert>
+  </mapper>
