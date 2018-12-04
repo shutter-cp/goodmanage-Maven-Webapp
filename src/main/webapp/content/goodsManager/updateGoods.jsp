@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -67,27 +68,29 @@ function check(){
                 </TR>
                 <TR>
                   <TD class=gridViewItem>商品ID </TD>
-                  <TD class=gridViewItem><input class=gridViewItem value="####" type="text" id='productId' name="productId"></TD>
+                  <TD class=gridViewItem><input class=gridViewItem value="${goods.goodsID }" type="text" id='productId' name="productId"></TD>
                    
                   <TD class=gridViewItem>商品名称 </TD>
-                  <TD class=gridViewItem><input class=gridViewItem value="####" type="text" id='productName' name="productName"></TD>
+                  <TD class=gridViewItem><input class=gridViewItem value="${goods.goodsName }" type="text" id='productName' name="productName"></TD>
                     </TR>
                <TR>
                   <TD class=gridViewItem>商品价格</TD>
-                  <TD class=gridViewItem><input  class=gridViewItem type="text" id='productPrice' value="####" name="productPrice"></TD>
+                  <TD class=gridViewItem><input  class=gridViewItem type="text" id='productPrice' value="${goods.goodsPrice }" name="productPrice"></TD>
              
                   <TD class=gridViewItem> 商品数量</TD>
-                  <TD class=gridViewItem><input class=gridViewItem id='productCount' value='####' name="productCount"></TD>
+                  <TD class=gridViewItem><input class=gridViewItem id='productCount' value='${goods.goodsCount }' name="productCount"></TD>
                     </TR>
                  <TR>
 				  <TD class=gridViewItem >商品类型 </TD>
                   <TD class=gridViewItem>
-						<select name="productType" style="WIDTH:45% ;color:#566984" >			
-						   <option value="####" >####</option>  	
+						<select name="productType" style="WIDTH:45% ;color:#566984" >
+							<c:forEach items="${goodsTyepList }" var="goodsTyep">
+									<option value="${goodsTyep.id }">${goodsTyep.typename }</option>
+							</c:forEach>		
 						</select>  
 				  </TD>
                   <TD class=gridViewItem>商品描述</TD>
-                  <TD class=gridViewItem><input   class=gridViewItem type="text" value='####' id='productDep' name="productDep"></TD>
+                  <TD class=gridViewItem><input   class=gridViewItem type="text" value='${goods.goodsDep }' id='productDep' name="productDep"></TD>
               
                 </TR>
                 <TR>

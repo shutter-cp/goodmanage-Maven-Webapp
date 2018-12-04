@@ -56,4 +56,17 @@
 					goodsID LIKE #{id}
 					AND goodsName LIKE #{name}
  	</select>
+ 	<select id="getGoods" resultType="com.goodmanage.bean.Goods" parameterType="Integer">
+ 			SELECT
+				goodsID,
+				goodsName,
+				goodsPrice,
+				goodsCount,
+				goodsDep,
+				goodsType
+			FROM	
+				goods
+			WHERE
+				goodsID = #{goodsid}
+ 	</select>
  </mapper>

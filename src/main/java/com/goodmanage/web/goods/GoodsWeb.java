@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.goodmanage.bean.Goods;
 import com.goodmanage.bean.GoodsLi;
 import com.goodmanage.bean.Goodstype;
 import com.goodmanage.service.goods.GoodsDo;
@@ -36,7 +37,7 @@ import net.sf.json.JSONArray;
  * 
  */
 @Controller
-public class Goods {
+public class GoodsWeb {
 	@Autowired
 	private GoodsDo goodsDo;
 	
@@ -156,10 +157,15 @@ public class Goods {
 	 * @since  1.0.0
 	 */
 	@GetMapping("/content/goodsManager/update")
-	public ModelAndView initUpDateGoods(String goodsid){
+	public ModelAndView initUpDateGoods(Integer goodsid){
 		ModelAndView andView = new ModelAndView();
-		System.out.println(goodsid);
+		
 		Goods goods = goodsDo.getGoods(goodsid);
+		
+		List<Goodstype> goodsTyepList = goodsDo.getGoodsTyep();
+		
+		andView.addObject("goodsTyepList",goodsTyepList );
+		andView.addObject("goods",goods );
 		andView.setViewName("content/goodsManager/updateGoods");
 		return andView;
 	}

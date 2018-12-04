@@ -124,4 +124,20 @@ public class GoodsDo {
 		return goodDao.fondGoodsList(fond);
 	}
 
+	/**
+	 * (这里用一句话描述这个方法的作用)
+	 * 方法名：getGoods
+	 * 创建人：chenPeng
+	 * 时间：2018年12月4日-下午11:28:24 
+	 * 手机:17673111810
+	 * @param goodsid
+	 * @return Goods
+	 * @exception 
+	 * @since  1.0.0
+	*/
+	public Goods getGoods(Integer goodsid) {
+		// TODO Auto-generated method stub
+		return goodDao.getGoods(goodsid);
+	}
+
 }
