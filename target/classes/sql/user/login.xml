@@ -12,6 +12,7 @@
 		WHERE
 			userName = #{userName}
 			AND pwd = #{pwd}
+			AND roles = 1
 	</select>
 
 </mapper>

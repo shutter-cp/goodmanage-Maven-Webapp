@@ -170,6 +170,18 @@ public class GoodsWeb {
 		return andView;
 	}
 	
+	@PostMapping("/content/goodsManager/updateDo")
+	public ModelAndView upDateGoods(
+				Integer productId,
+				String productName,
+				Double productPrice,
+				Integer productCount,
+				Integer productType,
+				String productDep
+			){
+		goodsDo.upDate(productId,productName,productPrice,productCount,productType,productDep);
+		return new ModelAndView("redirect:/content/goodsManager/searchGoods");
+	}
 	/**
 	 * 刪除商品
 	 * 方法名：initDeleteGoods
@@ -182,9 +194,26 @@ public class GoodsWeb {
 	 * @since  1.0.0
 	 */
 	@GetMapping("/content/goodsManager/delete")
-	public ModelAndView initDeleteGoods(String goodsid){
+	public ModelAndView deleteGoods(Integer goodsid){
+		goodsDo.deletGoods(goodsid);
+		return new ModelAndView("redirect:/content/goodsManager/searchGoods");
+	}
+	
+	@GetMapping("/content/goodsManager/addGoodsType")
+	public ModelAndView initAddGoodsType(){
 		ModelAndView andView = new ModelAndView();
-		System.out.println(goodsid);
+		
+		andView.setViewName("content/goodsManager/addGoodsType");
 		return andView;
+	}
+	
+	@PostMapping("/content/goodsManager/addGoodsTypeDo")
+	public ModelAndView addGoodsTypeDo(
+					Integer typeID,
+					String typeName,
+					String typeDec
+				){
+		goodsDo.addGoodsType(typeID,typeName,typeDec);
+		return new ModelAndView("redirect:/content/goodsManager/addGoods");
 	}
 }

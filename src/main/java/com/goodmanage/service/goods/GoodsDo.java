@@ -140,4 +140,70 @@ public class GoodsDo {
 		return goodDao.getGoods(goodsid);
 	}
 
+	/**
+	 * (这里用一句话描述这个方法的作用)
+	 * 方法名：upDate
+	 * 创建人：chenPeng
+	 * 时间：2018年12月4日-下午11:47:26 
+	 * 手机:17673111810
+	 * @param productId
+	 * @param productName
+	 * @param productPrice
+	 * @param productCount
+	 * @param productType
+	 * @param productDep void
+	 * @exception 
+	 * @since  1.0.0
+	*/
+	public void upDate(Integer productId, String productName, Double productPrice, Integer productCount,
+			Integer productType, String productDep) {
+		// TODO Auto-generated method stub
+		Goods goods = new Goods();
+		goods.setGoodsCount(productCount);
+		goods.setGoodsDep(productDep);
+		goods.setGoodsID(productId);
+		goods.setGoodsName(productName);
+		goods.setGoodsPrice(productPrice);
+		goods.setGoodsType(productType);
+		
+		goodDao.upDate(goods);
+	}
+
+	/**
+	 * (这里用一句话描述这个方法的作用)
+	 * 方法名：deletGoods
+	 * 创建人：chenPeng
+	 * 时间：2018年12月4日-下午11:56:48 
+	 * 手机:17673111810
+	 * @param goodsid void
+	 * @exception 
+	 * @since  1.0.0
+	*/
+	public void deletGoods(Integer goodsid) {
+		// TODO Auto-generated method stub
+		goodDao.deletGoods(goodsid);
+	}
+
+	/**
+	 * (这里用一句话描述这个方法的作用)
+	 * 方法名：addGoodsType
+	 * 创建人：chenPeng
+	 * 时间：2018年12月5日-上午12:08:12 
+	 * 手机:17673111810
+	 * @param typeID
+	 * @param typeName
+	 * @param typeDec void
+	 * @exception 
+	 * @since  1.0.0
+	*/
+	public void addGoodsType(Integer typeID, String typeName, String typeDec) {
+		// TODO Auto-generated method stub
+		Goodstype goodstype = new Goodstype();
+		goodstype.setId(typeID);
+		goodstype.setTypedes(typeDec);
+		goodstype.setTypename(typeName);
+		
+		goodDao.addGoodsType(goodstype);
+	}
+
 }

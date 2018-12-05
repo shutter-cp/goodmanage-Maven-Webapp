@@ -44,9 +44,8 @@ public class LoginCore implements HandlerInterceptor{
 	public boolean preHandle(HttpServletRequest arg0, HttpServletResponse arg1,
 			Object arg2) throws Exception {
 		if(arg0.getSession().getAttribute("user") == null){
-			System.out.println("sdafdsfds");
-			//arg0.getRequestDispatcher("/login").forward(arg0, arg1);
-			arg1.sendRedirect(arg0.getContextPath()+"/login");
+			System.out.println("未登陆");
+			arg1.sendRedirect(arg0.getContextPath()+"/index.jsp");
 			return false;
 		}
 		return true;

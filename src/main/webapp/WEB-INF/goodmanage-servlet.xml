@@ -33,32 +33,13 @@
 		
 		
 	<!-- 登陆拦截器 -->
-	<!-- <mvc:interceptors> -->
-		<!-- 设置login不拦截 拦截其他的 -->
-		<!-- <mvc:interceptor>
-			<mvc:mapping path="/addweight**"/>
-			<mvc:mapping path="/comment**"/>
-			<mvc:mapping path="/admin"/>
-			<mvc:exclude-mapping path="/login"/>
-			<bean class="com.looc.music.core.LoginCore"></bean>
-		</mvc:interceptor>
-	</mvc:interceptors> -->
-	<!-- 管理员拦截器 -->
-<!-- 	<mvc:interceptors>
+	<mvc:interceptors>
 		<mvc:interceptor>
-			<mvc:mapping path="/admin/admin"/>
-			<mvc:mapping path="/admin/admin/**"/>
-			<bean class="com.looc.music.core.AdminCore"></bean>
+			<mvc:mapping path="/content**"/>
+			<bean class="com.goodmanage.core.LoginCore"></bean>
 		</mvc:interceptor>
 	</mvc:interceptors>
 	
-	<mvc:interceptors>
-		<mvc:interceptor>
-			<mvc:mapping path="/admin/author"/>
-			<mvc:mapping path="/admin/author/**"/>
-			<bean class="com.looc.music.core.AuthorCore"></bean>
-		</mvc:interceptor>
-	</mvc:interceptors> -->
 	
 	<!-- 文件上传 -->
 	<bean id="multipartResolver" 

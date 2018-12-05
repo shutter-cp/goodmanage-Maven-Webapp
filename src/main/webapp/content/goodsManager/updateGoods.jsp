@@ -59,7 +59,7 @@ function check(){
         <TD class="main_ls">&nbsp;</TD>
         <TD class="main_nu" vAlign=top align=middle>
            <DIV>
-          <form action="UpdateGoodsServlet"  method='post' onsubmit="return check()">
+          <form action="${basePath}/content/goodsManager/updateDo"  method='post' onsubmit="return check()">
           <input type='hidden' name='productID' value="####">
             <TABLE class=gridView style="WIDTH: 80%; BORDER-COLLAPSE: collapse"  cellSpacing=0 rules=all  border=1>
               <TBODY>

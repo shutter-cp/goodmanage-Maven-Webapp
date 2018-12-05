@@ -69,4 +69,35 @@
 			WHERE
 				goodsID = #{goodsid}
  	</select>
+ 	
+ 	<update id="upDate" parameterType="com.goodmanage.bean.Goods">
+ 		UPDATE
+			goods
+		SET
+			goodsName = #{goodsName},
+			goodsPrice =  #{goodsPrice},
+			goodsCount = #{goodsCount},
+			goodsDep = #{goodsDep},
+			goodsType = #{goodsType}
+		WHERE
+			goodsID = #{goodsID}
+ 	</update>
+ 	<delete id="deletGoods" parameterType="Integer">
+ 		DELETE FROM
+			goods
+		WHERE
+			goodsID = #{goodsid}
+ 	</delete>
+ 	<insert id="addGoodsType" parameterType="com.goodmanage.bean.Goodstype">
+ 		INSERT INTO
+			goodstype(
+				id,
+				typename,
+				typedes
+			)VALUE(
+				#{id},
+				#{typename},
+				#{typedes}
+			)
+ 	</insert>
  </mapper>
