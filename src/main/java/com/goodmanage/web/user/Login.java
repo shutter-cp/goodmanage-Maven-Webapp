@@ -10,6 +10,7 @@ package com.goodmanage.web.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -48,10 +49,17 @@ public class Login {
 		
 		boolean temp = loginDo.loginDo(username,password);
 		if (temp) {
-			andView.setViewName("main");
+			return new ModelAndView("redirect:/main");
 		}else{
 			andView.setViewName("errorMsg");
+			return andView;
 		}
+	}
+	
+	@GetMapping("/main")
+	public ModelAndView initMain(){
+		ModelAndView andView = new ModelAndView();
+		andView.setViewName("main");
 		return andView;
 	}
 	
