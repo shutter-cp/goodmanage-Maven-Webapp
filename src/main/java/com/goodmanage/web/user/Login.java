@@ -51,7 +51,8 @@ public class Login {
 		if (temp) {
 			return new ModelAndView("redirect:/main");
 		}else{
-			andView.setViewName("errorMsg");
+			andView.addObject("errorMsgs", "用户名或密码错误");
+			andView.setViewName("index");
 			return andView;
 		}
 	}

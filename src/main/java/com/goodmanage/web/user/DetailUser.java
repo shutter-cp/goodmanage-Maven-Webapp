@@ -88,7 +88,7 @@ public class DetailUser {
 				temp = rolseList.get(0);
 				rolseList.set(0, roles);
 				rolseList.set(i,temp);
-				roles.getId();
+				//roles.getId();
 			}
 			i++;
 		}

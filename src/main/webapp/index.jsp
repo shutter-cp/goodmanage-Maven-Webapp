@@ -51,7 +51,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 										</TD>
 										<TD vAlign=center colSpan=2>
 											<!-- <INPUT id=txtSN size=4 name=txtSN> &nbsp; <IMG src="images/default.gif" border=0> <A id=LinkButton1 href="#">不清楚，再来一张</A>-->
-											<font color='red'>######</font>
+											<font color='red'>${errorMsgs }</font>
 										</TD>
 									</TR>
 									<TR height=40>
@@ -86,8 +86,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			}else{
 				alert("请输入用户名和密码！！");
 			}
-			
-		}
+		};
+		
+		
 	</script>
 	
 </BODY>

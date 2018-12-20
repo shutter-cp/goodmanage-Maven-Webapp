@@ -164,6 +164,20 @@ public class GoodsWeb {
 		
 		List<Goodstype> goodsTyepList = goodsDo.getGoodsTyep();
 		
+		
+		Goodstype goodstype = new Goodstype();
+		int i = 0;
+		for (Goodstype goodstype2 : goodsTyepList) {
+			if(goodstype2.getId()==goods.getGoodsType()){
+				goodstype = goodsTyepList.get(0);
+				goodsTyepList.set(0, goodstype2);
+				goodsTyepList.set(i, goodstype);
+			}
+			i++;
+		}
+		
+		
+		
 		andView.addObject("goodsTyepList",goodsTyepList );
 		andView.addObject("goods",goods );
 		andView.setViewName("content/goodsManager/updateGoods");
@@ -207,6 +221,20 @@ public class GoodsWeb {
 		return andView;
 	}
 	
+	/**
+	 * 
+	 * 添加商品类型
+	 * 方法名：addGoodsTypeDo
+	 * 创建人：chenPeng
+	 * 时间：2018年12月15日-下午8:09:19 
+	 * 手机:17673111810
+	 * @param typeID
+	 * @param typeName
+	 * @param typeDec
+	 * @return ModelAndView
+	 * @exception 
+	 * @since  1.0.0
+	 */
 	@PostMapping("/content/goodsManager/addGoodsTypeDo")
 	public ModelAndView addGoodsTypeDo(
 					Integer typeID,
